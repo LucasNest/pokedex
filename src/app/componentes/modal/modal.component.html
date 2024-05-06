@@ -1,0 +1,78 @@
+<div class="page">
+    <div class="modal slide-in-top">
+        <div>
+            <button class="close style-close" (click)="closeModal()">
+                <img src="../../../assets/close-icon.svg" alt="">
+            </button>
+        </div>
+        <div class="modal-in">
+            <div class="left" [ngClass]="type1">
+                <div class="img-modal">
+                    <img [src]="img" alt="">
+                </div>
+            </div>
+            <div class="right" [ngClass]="type1">
+                <div class="tittle">
+                    <div class="tittle1">
+                        <p>{{nome}}</p>
+                    </div>
+                    <div class="tittle2">
+                        <p id="gener">Generation 1</p>
+                        <div class="bolinha">
+                            <p id="gener-number">578</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="abilities">
+                    <p>Abilities</p>
+                    <div class="ability">
+                        <p *ngFor="let ability of abilities">{{ability.ability.name}}</p>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stats-hp">
+                        <span class="ff-stats-txt">Healthy Points</span>
+                        <span class="ff-stats-number"><b>{{hp}} 000</b></span>
+                        <div class="stats-hp-bar-empty">
+                            <div class="stats-hp-bar" [style.width]=" hpPorcentagem +'%' "></div>
+                        </div>
+                    </div>
+                    <div class="stats-exp">
+                        <span class="ff-stats-txt">Experience</span>
+                        <span class="ff-stats-number"><b>{{xp}} 000</b></span>
+                        <div class="stats-exp-bar-empty">
+                            <div class="stats-exp-bar" [style.width]="xpPorcentagem +'%' "></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats2">
+                    <div class="box">
+                        <div class="bolinha2">
+                            <p>{{atk}}</p>
+                        </div>
+                        <p>Attack</p>
+                    </div>
+                    <div class="box">
+                        <div class="bolinha2">
+                            <p>{{def}}</p>
+                        </div>
+                        <p>Defense</p>
+                    </div>
+                    <div class="box">
+                        <div class="bolinha2">
+                            <p>1{{spAtk}}</p>
+                        </div>
+                        <p>Sp Attack</p>
+                    </div>
+                    <div class="box">
+                        <div class="bolinha2">
+                            <p>{{spDef}}</p>
+                        </div>
+                        <p>Sp Defense</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" (click)="closeModal()"></div>
+</div>

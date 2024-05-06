@@ -1,0 +1,58 @@
+.page{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-rows: 93px 1fr 30px;
+    background: linear-gradient(180deg, #F5DB13 0%, #F2B807 100%);
+    box-shadow: 0px 1px 5px -1px inset;
+}
+.conteudo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.card{
+    display: grid;
+    width: 55%;
+    height: 70%;
+    padding-right: 10%;
+    justify-self: end;
+    align-self: center;
+}
+.img{
+    display: grid;
+    justify-content: end;
+    align-content: center;
+}
+.ff-card1{
+    font-size: 72px;
+    line-height: 84.17px;
+    letter-spacing: 4px;
+    text-align: left;
+}
+.ff-card2{
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 37.41px;
+    text-align: left;
+
+}
+.btt{
+    border-radius: 11px;
+    background: #73D677;
+    width: 45%;
+    height: 90%;
+    border: none;
+    transition: 0.5s ease;
+    cursor: pointer;
+    box-shadow: 0px -9px 0px 0px #0000002E inset;
+
+}
+.btt:hover{
+    background: #67bd6a;
+}
+.see-pokemon{
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 26.89px;
+    text-align: center;
+}

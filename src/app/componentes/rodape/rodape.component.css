@@ -1,0 +1,13 @@
+.footer{
+    display: inline-flex;
+    justify-content: space-around;
+    align-self: end;
+    height: 30px;
+    width: 100%;
+}
+.footer p {
+    font-family: "Karla", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.04px;
+}

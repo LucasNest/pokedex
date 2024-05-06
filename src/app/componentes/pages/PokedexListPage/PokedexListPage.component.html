@@ -1,0 +1,84 @@
+<div class="page">
+    <app-cabecalho></app-cabecalho>
+    <div class="group">
+        <div class="search">
+            <div class="tittle-page">
+                <p>800 <b> Pokemons </b> for you to choose your favorite</p>
+            </div>
+            <div class="search-input">
+                <input type="text" placeholder="Search your favorite pokemon..." class="back-plate txt-ff" autofocus [(ngModel)]="pokemonInput" (keyup.enter)="searchPokemon()">
+            </div>
+            <div class="filter-type">
+                <mat-form-field class="teste">
+                    <mat-label>Tipos</mat-label>
+                    <mat-select [formControl]="tipo" multiple>
+                        <mat-option *ngFor="let tipo of typeList; track tipo" [value]="tipo" (click)="typeSearch(tipo)">{{tipo}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <select name=" Ataque" id="" class="select">
+                    <option value=""> Attack </option>
+                    <option value="" (click)="ordenarMaior()">Maior p/ Menor</option>
+                    <option value="" (click)="ordenarMenor()">Menor p/ Maior</option>
+                </select>
+                <select name="Experiencia" id="" class="select">
+                    <option value="">Experiencia</option>
+                </select>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="scale-up-center" *ngFor="let card of listaPokemonsDividida[0 + valuePage]">
+                <div class="card slide-top" (click)="modalFunction(card)" id="teste">
+                    <div class="left">
+                        <h3 class="tittle">{{card.name}}</h3>
+                        <div class="stats">
+                            <div class="stats-atk">
+                                <div class="circulo">
+                                    <span>{{card.atk}}</span>
+                                </div>
+                                <h3>Attack</h3>
+                            </div>
+                            <div class="stats-def">
+                                <div class="circulo">
+                                    <span>{{card.def}}</span>
+                                </div>
+                                <h3>Defense</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="tipos"  *ngFor="let tipo of card.type" >
+                                <div class="tipo" [ngClass]=" tipo.type.name ">
+                                    <span>{{tipo.type.name}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right" [ngClass]="card.type[0].type.name">
+                        <img src="{{card.img}}" alt="" class="img">
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="loader">
+        <button class="btt-loader btt-loader1" (click)="pageAnterior()" [disabled]="clickDisableVoltar"></button>
+        <button class="btt-loader btt-loader2" (click)="pageProximo()" [disabled]="clickDisableSeguir"></button>
+    </div>
+    <app-rodape></app-rodape>
+</div>
+<div class="modal" *ngIf="!modalClosed">
+    <app-modal 
+    [nome]='pokemonSelected.name' 
+    [img]='pokemonSelected.img'
+    [hp]='pokemonSelected.hp'
+    [xp]='pokemonSelected.xp'
+    [hpPorcentagem]='pokemonSelected.hp * 100 / 255'
+    [xpPorcentagem]='pokemonSelected.xp * 100 / 340'
+    [atk]='pokemonSelected.atk'
+    [def]='pokemonSelected.def'
+    [spAtk]='pokemonSelected.spAtk'
+    [spDef]='pokemonSelected.spDef'
+    [abilities]='pokemonSelected.abilities'
+    [type1]='pokemonSelected.type[0].type.name'
+    (closeModalEvent)="closeModal($event)"
+
+    ></app-modal>
+</div>

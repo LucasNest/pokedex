@@ -1,0 +1,301 @@
+<div class="page">
+    <div class="header">
+        <app-cabecalho></app-cabecalho>
+    </div>
+    <div class="body">
+        <div class="card">
+            <div class="tittle">
+                <h1>Legenderies</h1>
+            </div>
+            <div class="card-body">
+                <div class="img">
+                    <img [src]="imgCard" alt="" class="img-t">
+                </div>
+                <div class="stats">
+                    <div class="stats-txt">
+                        <h1>{{nomeCard}}</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. 
+                        </p>
+                    </div>
+                    <div class="stats-number">
+                        <div class="left">
+                            <div class="hp">
+                                <span>Health Points</span>
+                                <span>{{hp}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder " [style.width]="hpPorcentagem +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="atk">
+                                <span>Attack Points</span>
+                                <span>{{atk}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="atkPorcentagem +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sp-atk">
+                                <span>Sp Attack Points</span>
+                                <span>{{spAtk}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="spAtkPorcentagem +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="exp">
+                                <span>Experience</span>
+                                <span>{{xp}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="xpPorcentagem +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dfs">
+                                <span>Defense Points</span>
+                                <span>{{def}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="defPorcentagem +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sp-dfs">
+                                <span>Sp Defense Points</span>
+                                <span>{{spDef}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="spDefPorcentagem +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="select-card slide-in-right">
+            <button class="btt-card btt-esq" (click)="pageAnterior()" [disabled]="clickDisableVoltar"></button>
+            <div class="card-select scale-up-center" *ngFor="let lendary of listaLendaryDividida[0 + valuePage]" (click)="selectLendary(lendary)">
+                <div class="img-lgd">
+                    <img [src]="lendary.img" alt="">
+                </div>
+                <div class="name-lgd">
+                    <div class="ff-card">
+                        <p>{{lendary.name}}</p>
+                    </div>
+                    <div class="img-card">
+                        <img src="../../../../assets/pokebola.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <button class="btt-card btt-direita" (click)="pageProximo()" [disabled]="clickDisableSeguir"></button>
+        </div>
+    </div>
+    <div class="body">
+        <div class="card">
+            <div class="tittle">
+                <h1>Stronger</h1>
+            </div>
+            <div class="card-body">
+                <div class="img">
+                    <img [src]="imgCardStronger" alt="" class="img-t">
+                </div>
+                <div class="stats">
+                    <div class="stats-txt">
+                        <h1>{{nomeCardStronger}}</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. 
+                        </p>
+                    </div>
+                    <div class="stats-number">
+                        <div class="left">
+                            <div class="hp">
+                                <span>Health Points</span>
+                                <span>{{hpStronger}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="hpPorcentagemStronger +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="atk">
+                                <span>Attack Points</span>
+                                <span>{{atkStronger}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="atkPorcentagemStronger +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sp-atk">
+                                <span>Sp Attack Points</span>
+                                <span>{{spAtkStronger}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="spAtkPorcentagemStronger +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="exp">
+                                <span>Experience Points</span>
+                                <span>{{xpStronger}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="xpPorcentagemStronger +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dfs">
+                                <span>Defense Points</span>
+                                <span>{{defStronger}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="defPorcentagemStronger +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sp-dfs">
+                                <span>Sp Defense Points</span>
+                                <span>{{spDefStronger}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="spDefPorcentagemStronger +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="select-card">
+            <button class="btt-card btt-esq" (click)="pageAnteriorStronger()" [disabled]="clickStrongerDisableVoltar"></button>
+            <div class="card-select scale-up-center" *ngFor="let lendaryStronger of listaLendaryStrongerDividida[0 + valuePageStronger]" (click)="selectStrongerLendary(lendaryStronger)">
+                <div class="img-lgd">
+                    <img [src]="lendaryStronger.img" alt="">
+                </div>
+                <div class="name-lgd">
+                    <div class="ff-card">
+                        <p>{{lendaryStronger.name}}</p>
+                    </div>
+                    <div class="img-card">
+                        <img src="../../../../assets/pokebola.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btt-card btt-direita" (click)="pageProximoStronger()" [disabled]="clickStrongerDisableSeguir"></button>
+        </div>
+    </div>
+    <div class="body">
+        <div class="card">
+            <div class="tittle">
+                <h1>Weaker</h1>
+            </div>
+            <div class="card-body">
+                <div class="img">
+                    <img [src]="imgCardWeaker" alt="" class="img-t">
+                </div>
+                <div class="stats">
+                    <div class="stats-txt">
+                        <h1>{{nomeCardWeaker}}</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. 
+                        </p>
+                    </div>
+                    <div class="stats-number">
+                        <div class="left">
+                            <div class="hp">
+                                <span>Health Points</span>
+                                <span>{{hpWeaker}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="hpPorcentagemWeaker +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="atk">
+                                <span>Attack Points</span>
+                                <span>{{atkWeaker}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="atkPorcentagemWeaker +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sp-atk">
+                                <span>Sp Attack Points</span>
+                                <span>{{spAtkWeaker}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder " [style.width]="spAtkPorcentagemWeaker +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="exp">
+                                <span>Experience Points</span>
+                                <span>{{xpWeaker}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="xpPorcentagemWeaker +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dfs">
+                                <span>Defense Points</span>
+                                <span>{{defWeaker}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="defPorcentagemWeaker +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sp-dfs">
+                                <span>Sp Defense Points</span>
+                                <span>{{spDefWeaker}} 000</span>
+                                <div class="poder-vazio">
+                                    <div class="poder" [style.width]="spDefPorcentagemWeaker +'%'">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="select-card">
+            <button class="btt-card btt-esq" (click)="pageAnteriorWeaker()" [disabled]="clickWeakerDisableVoltar"></button>
+            <div class="card-select scale-up-center" *ngFor="let lendaryWeaker of listaLendaryWeakerDividida[0 + valuePageWeaker]" (click)="selectWeakerLendary(lendaryWeaker)">
+                <div class="img-lgd">
+                    <img [src]="lendaryWeaker.img" alt="">
+                </div>
+                <div class="name-lgd">
+                    <div class="ff-card">
+                        <p>{{lendaryWeaker.name}}</p>
+                    </div>
+                    <div class="img-card">
+                        <img src="../../../../assets/pokebola.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <button class="btt-card btt-direita" (click)="pageProximoWeaker()" [disabled]="clickWeakerDisableSeguir"></button>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Make with ❤️ for the PokéSpartans team Platzi Master</p>
+        <p>Ours Team</p>
+    </div>
+</div>
