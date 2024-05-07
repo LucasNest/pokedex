@@ -9,20 +9,25 @@
                 <input type="text" placeholder="Search your favorite pokemon..." class="back-plate txt-ff" autofocus [(ngModel)]="pokemonInput" (keyup.enter)="searchPokemon()">
             </div>
             <div class="filter-type">
-                <mat-form-field class="teste">
+                <mat-form-field>
                     <mat-label>Tipos</mat-label>
-                    <mat-select [formControl]="tipo" multiple>
-                        <mat-option *ngFor="let tipo of typeList; track tipo" [value]="tipo" (click)="typeSearch(tipo)">{{tipo}}</mat-option>
+                    <mat-select [formControl]="tipo" multiple (selectionChange)="limitSelectionType($event)">
+                        <mat-option *ngFor="let tipo of typeList" [value]="tipo" (click)="typeSearch(tipo)" >{{tipo}}</mat-option>
                     </mat-select>
                 </mat-form-field>
-                <select name=" Ataque" id="" class="select">
-                    <option value=""> Attack </option>
-                    <option value="" (click)="ordenarMaior()">Maior p/ Menor</option>
-                    <option value="" (click)="ordenarMenor()">Menor p/ Maior</option>
-                </select>
-                <select name="Experiencia" id="" class="select">
-                    <option value="">Experiencia</option>
-                </select>
+                <mat-form-field>
+                  <mat-label>Ordenar</mat-label>
+                  <mat-select [formControl]="ordem">
+                      <mat-option *ngFor="let ordem of ordemOptions" [value]="ordem">{{ordem}}</mat-option>
+                  </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Filtrar</mat-label>
+                <mat-select [formControl]="filtrar">
+                    <mat-option *ngFor="let filtrar of filtrarOptions" [value]="filtrar">{{filtrar}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <img src="../../../../assets/image.png" alt="" class="img-filter" (click)="ordernarLista()">
             </div>
         </div>
         <div class="cards">
@@ -53,7 +58,10 @@
                         </div>
                     </div>
                     <div class="right" [ngClass]="card.type[0].type.name">
-                        <img src="{{card.img}}" alt="" class="img">
+                        <img  *ngIf="card.img; else imgAlternativa" [src]="card.img" alt="" class="img">
+                        <ng-template #imgAlternativa>
+                          <img src="../../../../assets/pikachiImgAlternativa.png" alt="" class="img imgAlt">
+                        </ng-template>
                     </div>
                 </div>
             </div>
@@ -65,8 +73,8 @@
     <app-rodape></app-rodape>
 </div>
 <div class="modal" *ngIf="!modalClosed">
-    <app-modal 
-    [nome]='pokemonSelected.name' 
+    <app-modal
+    [nome]='pokemonSelected.name'
     [img]='pokemonSelected.img'
     [hp]='pokemonSelected.hp'
     [xp]='pokemonSelected.xp'
@@ -79,6 +87,7 @@
     [abilities]='pokemonSelected.abilities'
     [type1]='pokemonSelected.type[0].type.name'
     (closeModalEvent)="closeModal($event)"
+
 
     ></app-modal>
 </div>
