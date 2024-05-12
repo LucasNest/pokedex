@@ -3,6 +3,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { FormControl } from '@angular/forms';
+import { MatSelectChange } from '@angular/material/select';
 
 
 @Component({
@@ -15,6 +16,14 @@ export class PokedexListPageComponent {
   tipo = new FormControl('');
 
   typeList: string[] = ['fire', 'water', 'grass', 'electric', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dark', 'dragon', 'steel', 'fairy', 'normal'];
+
+  ordem = new FormControl('');
+
+  ordemOptions: string[] = ['Maior-Menor', 'Menor-Maior'];
+
+  filtrar = new FormControl('');
+
+  filtrarOptions: string[] = ['name', 'atk', 'def', 'hp', 'spAtk', 'spDef', 'xp'];
 
   modalClosed: boolean = true;
 
@@ -30,7 +39,7 @@ export class PokedexListPageComponent {
 
   listaPokemons: any = [];
 
-  corte: number = 12;
+  corte: number = 5;
 
   listaPokemonsDividida: any = [];
 
@@ -108,6 +117,8 @@ export class PokedexListPageComponent {
   }
 
   typeSearch(tipo){
+    console.log(tipo, this.tipo.value);
+
 
     if(this.tipo.value == ''){
       this.listaPokemonsDividida = [];
@@ -115,19 +126,38 @@ export class PokedexListPageComponent {
       this.listarPokemons();
     }else{
       this.listaPokemonsDividida = [];
-      let lista = this.pokemonService.getTypeCache(this.tipo.value);
 
+      let lista = this.pokemonService.getTypeCache(this.tipo.value);
       this.dividirLista(lista);
     }
+
   }
+  ordernarLista() {
+    if (this.ordem.value == 'Maior-Menor') {
+      this.valuePage = 0;
+      this.listaOrdenada = this.listaPokemons.sort((a, b) =>
+        a[this.filtrar.value ?? ""] < b[this.filtrar.value ?? ""] ? 1 : -1
+      );
+    } else if (this.ordem.value == 'Menor-Maior') {
+      this.valuePage = 0;
+      this.listaOrdenada = this.listaPokemons.sort((a, b) =>
+        a[this.filtrar.value ?? ""] > b[this.filtrar.value ?? ""] ? 1 : -1
+      );
+    }else{
+      this.valuePage = 0;
+      this.listaPokemonsDividida = [];
+      this.listaOrdenada = this.listaPokemons;
+    }
 
-  ordenarMaior(){
-
-    this.listaOrdenada = this.listaPokemons.sort((a, b) => (a.atk > b.atk) ? -1 : 1);
+    this.listaPokemonsDividida = [];
     this.dividirLista(this.listaOrdenada);
   }
 
-  ordenarMenor(){
-
+  limitSelectionType(event: MatSelectChange) {
+    const limit = 2;
+    if (event.value.length > limit) {
+      event.value.splice(limit);
+      this.tipo.setValue(event.value);
+    }
   }
 }

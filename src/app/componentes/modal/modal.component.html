@@ -8,7 +8,10 @@
         <div class="modal-in">
             <div class="left" [ngClass]="type1">
                 <div class="img-modal">
-                    <img [src]="img" alt="">
+                    <img *ngIf="img; else imgAlt" [src]="img" alt="">
+                    <ng-template #imgAlt>
+                        <img src="../../../assets/pikachiImgAlternativa.png" alt="" class="imgAlt">
+                    </ng-template>
                 </div>
             </div>
             <div class="right" [ngClass]="type1">

@@ -1,71 +1,113 @@
-.ff-karla{
-    font-family: "Karla", sans-serif;
+.ff-karla {
+  font-family: "Karla", sans-serif;
 }
 
-html, body{
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.grass{
-    background: linear-gradient(180deg, #9bcc50 50%, #9bcc50 50%);
+.grass {
+  background: linear-gradient(180deg, #9bcc50 50%, #9bcc50 50%);
 }
-.water{
-    background: linear-gradient(270deg, #5BC7FA 0.15%, #35BAFF 100%);
+.water {
+  background: linear-gradient(270deg, #5bc7fa 0.15%, #35baff 100%);
 }
-.fire{
-    background: linear-gradient(180deg, #fd7d24 50%, #fd7d24 50%);
+.fire {
+  background: linear-gradient(180deg, #fd7d24 50%, #fd7d24 50%);
 }
-.poison{
-    background: linear-gradient(180deg, #b97fc9 50%, #b97fc9 50%);
+.poison {
+  background: linear-gradient(180deg, #b97fc9 50%, #b97fc9 50%);
 }
-.flying{
-    background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+.flying {
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
 }
-.bug{
-    background: linear-gradient(180deg, #729f3f 50%, #729f3f 50%);
+.bug {
+  background: linear-gradient(180deg, #729f3f 50%, #729f3f 50%);
 }
-.normal{
-    background: linear-gradient(180deg, #a4acaf 50%, #a4acaf 50%);
+.normal {
+  background: linear-gradient(180deg, #a4acaf 50%, #a4acaf 50%);
 }
-.electric{
-    background: linear-gradient(180deg, #eed535 50%, #eed535 50%);
+.electric {
+  background: linear-gradient(180deg, #eed535 50%, #eed535 50%);
 }
-.ground{
-    background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+.ground {
+  background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
 }
-.rock{
-    background: linear-gradient(180deg, #a38c21 50%, #a38c21 50%);
+.rock {
+  background: linear-gradient(180deg, #a38c21 50%, #a38c21 50%);
 }
-.fairy{
-    background: linear-gradient(180deg, #fdb9e9 50%, #fdb9e9 50%);
+.fairy {
+  background: linear-gradient(180deg, #fdb9e9 50%, #fdb9e9 50%);
 }
-.fighting{
-    background: linear-gradient(180deg, #e30c55 50%, #e30c55 50%);
+.fighting {
+  background: linear-gradient(180deg, #e30c55 50%, #e30c55 50%);
 }
-.psychic{
-    background: linear-gradient(180deg, #f366b9 50%, #f366b9 50%);
+.psychic {
+  background: linear-gradient(180deg, #f366b9 50%, #f366b9 50%);
 }
-.steel{
-    background: linear-gradient(180deg, #9eb7b8 50%, #9eb7b8 50%);
+.steel {
+  background: linear-gradient(180deg, #9eb7b8 50%, #9eb7b8 50%);
 }
-.ice{
-    background: linear-gradient(180deg, #4592c4 50%, #4592c4 50%);
+.ice {
+  background: linear-gradient(180deg, #4592c4 50%, #4592c4 50%);
 }
-.ghost{
-    background: linear-gradient(180deg, #7b62a3 50%, #7b62a3 50%);
+.ghost {
+  background: linear-gradient(180deg, #7b62a3 50%, #7b62a3 50%);
 }
-.dragon{
-    background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+.dragon {
+  background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
 }
-.dark{
-    background: linear-gradient(180deg, #707070 50%, #707070 50%);
+.dark {
+  background: linear-gradient(180deg, #707070 50%, #707070 50%);
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: rgba(242, 242, 242, 1) !important;
+  height: 40px;
+}
+
+.mat-mdc-form-field {
+  box-shadow: 2px 2px 2px 0px rgba(33, 33, 33, 0.1);
+  background: rgba(242, 242, 242, 1);
+  width: 135px;
+  /* height: 20px; */
+  border: none;
+  border-radius: 4px;
+  margin: 2.5%;
+  text-align: center;
+
+  display: grid !important;
+  grid-template-rows: 1fr 0px !important;
+}
+
+.mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper {
+  border-bottom: 0px solid red !important;
+}
+
+.mdc-line-ripple::before,
+.mdc-line-ripple::after {
+  border-bottom-style: none !important;
+}
+.mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper {
+  display: grid;
+  grid-template-columns: 99% 1%;
+  cursor: pointer;
+  align-content: center;
+  height: 20px;
+}

@@ -9,13 +9,16 @@
             </div>
             <div class="card-body">
                 <div class="img">
-                    <img [src]="imgCard" alt="" class="img-t">
+                    <img [src]="imgCard" alt="" class="img-t" *ngIf="imgCard; else lendaryAlt">
+                    <ng-template #lendaryAlt>
+                      <img src="../../../../assets/pikachiImgAlternativa.png" alt="" class="imgAlt">
+                    </ng-template>
                 </div>
                 <div class="stats">
                     <div class="stats-txt">
                         <h1>{{nomeCard}}</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. 
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
                         </p>
                     </div>
                     <div class="stats-number">
@@ -85,7 +88,10 @@
             <button class="btt-card btt-esq" (click)="pageAnterior()" [disabled]="clickDisableVoltar"></button>
             <div class="card-select scale-up-center" *ngFor="let lendary of listaLendaryDividida[0 + valuePage]" (click)="selectLendary(lendary)">
                 <div class="img-lgd">
-                    <img [src]="lendary.img" alt="">
+                    <img [src]="lendary.img" alt="" *ngIf="lendary.img; else lendaryAlt">
+                    <ng-template #lendaryAlt>
+                      <img src="../../../../assets/pikachiImgAlternativa.png" alt="" class="imgAlt">
+                    </ng-template>
                 </div>
                 <div class="name-lgd">
                     <div class="ff-card">
@@ -106,13 +112,16 @@
             </div>
             <div class="card-body">
                 <div class="img">
-                    <img [src]="imgCardStronger" alt="" class="img-t">
+                    <img [src]="imgCardStronger" alt="" class="img-t" *ngIf="imgCardStronger; else lendaryAlt">
+                    <ng-template #lendaryAlt>
+                      <img src="../../../../assets/pikachiImgAlternativa.png" alt="" class="imgAlt">
+                    </ng-template>
                 </div>
                 <div class="stats">
                     <div class="stats-txt">
                         <h1>{{nomeCardStronger}}</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. 
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
                         </p>
                     </div>
                     <div class="stats-number">
@@ -182,7 +191,10 @@
             <button class="btt-card btt-esq" (click)="pageAnteriorStronger()" [disabled]="clickStrongerDisableVoltar"></button>
             <div class="card-select scale-up-center" *ngFor="let lendaryStronger of listaLendaryStrongerDividida[0 + valuePageStronger]" (click)="selectStrongerLendary(lendaryStronger)">
                 <div class="img-lgd">
-                    <img [src]="lendaryStronger.img" alt="">
+                    <img [src]="lendaryStronger.img" alt="" *ngIf="lendaryStronger.img; else lendaryAlt">
+                    <ng-template #lendaryAlt>
+                      <img src="../../../../assets/pikachiImgAlternativa.png" alt="" class="imgAlt">
+                    </ng-template>
                 </div>
                 <div class="name-lgd">
                     <div class="ff-card">
@@ -193,7 +205,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <button class="btt-card btt-direita" (click)="pageProximoStronger()" [disabled]="clickStrongerDisableSeguir"></button>
         </div>
     </div>
@@ -204,13 +216,16 @@
             </div>
             <div class="card-body">
                 <div class="img">
-                    <img [src]="imgCardWeaker" alt="" class="img-t">
+                    <img [src]="imgCardWeaker" alt="" class="img-t" *ngIf="imgCardWeaker; else lendaryAlt">
+                    <ng-template #lendaryAlt>
+                      <img src="../../../../assets/pikachiImgAlternativa.png" alt="" class="imgAlt">
+                    </ng-template>
                 </div>
                 <div class="stats">
                     <div class="stats-txt">
                         <h1>{{nomeCardWeaker}}</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. 
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
                         </p>
                     </div>
                     <div class="stats-number">
@@ -280,7 +295,10 @@
             <button class="btt-card btt-esq" (click)="pageAnteriorWeaker()" [disabled]="clickWeakerDisableVoltar"></button>
             <div class="card-select scale-up-center" *ngFor="let lendaryWeaker of listaLendaryWeakerDividida[0 + valuePageWeaker]" (click)="selectWeakerLendary(lendaryWeaker)">
                 <div class="img-lgd">
-                    <img [src]="lendaryWeaker.img" alt="">
+                    <img [src]="lendaryWeaker.img" alt="" *ngIf="lendaryWeaker.img; else lendaryAlt">
+                    <ng-template #lendaryAlt>
+                      <img src="../../../../assets/pikachiImgAlternativa.png" alt="" class="imgAlt">
+                    </ng-template>
                 </div>
                 <div class="name-lgd">
                     <div class="ff-card">

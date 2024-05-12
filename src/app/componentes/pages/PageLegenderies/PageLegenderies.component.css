@@ -184,7 +184,7 @@
       opacity: 1;
     }
   }
-  
+
 
 .scale-up-center:hover {
 	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -211,7 +211,7 @@
               transform: scale(1.2);
     }
   }
-  
+
 .img-lgd {
     display: flex;
     align-self: center;
@@ -289,4 +289,7 @@
     z-index: 99;
     align-self: center;
     justify-self: center;
+}
+.imgAlt{
+  opacity: 0.5;
 }

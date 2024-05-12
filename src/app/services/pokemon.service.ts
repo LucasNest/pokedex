@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class PokemonService {
   apiUrlPoke = 'https://pokeapi.co/api/v2';
+  isLoading = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {}
 
@@ -24,10 +25,10 @@ export class PokemonService {
     return this.http.get<any>(`${this.apiUrlPoke}/type/${type}`);
   }
 
-  isLoading = new BehaviorSubject<boolean>(false);
   show() {
     this.isLoading.next(true);
   }
+
   hide() {
     this.isLoading.next(false);
   }
@@ -48,22 +49,19 @@ export class PokemonService {
     return returnPoke;
   }
 
-  getTypeCache(nameType){
+  getTypeCache(typesArray) {
     let cache = JSON.parse(localStorage.getItem('pokemonCache')!);
-
-    for (let i = 0; i < cache.length; i++) {
-      if (cache[i].types[0].indexOf(nameType) > -1) {
-        return cache[i];
-      }
-    
-    }
-    
     let returnPokes: any = [];
 
-    returnPokes + cache.Filter(
-      (pokemon) => pokemon.types[0].indexOf(nameType) > -1
-    );
+    returnPokes = cache.filter((pokemon) => {
+      return typesArray.every((type) => {
+        return pokemon.type
+          .map((pokemonType) => pokemonType.type.name)
+          .includes(type);
+      });
+    });
 
     return returnPokes;
   }
+
 }
