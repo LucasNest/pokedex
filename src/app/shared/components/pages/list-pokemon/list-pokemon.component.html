@@ -1,0 +1,47 @@
+<div class="container">
+    <app-header></app-header>
+    <div class="page">
+        <p class="title">151 <b> Pokemons </b> for you to choose your favorite</p>
+        <input class="search-input" placeholder="Procure um pokemon aqui..." type="text" [(ngModel)]="filterValue"
+            (input)="filter()">
+        <div class="filter-row">
+            <p-multiSelect
+            (onChange)="filterType()"
+            [(ngModel)]="filterTypeValue"
+            class="multi-select"
+
+            [options]="types" 
+            [autofocusFilter]="false" 
+            defaultLabel="Tipo" 
+            [filter]="false" 
+            [showToggleAll]="false" 
+            [showHeader]="false"
+            [selectionLimit]="2"
+            optionLabel="name"></p-multiSelect>
+            <select (change)="sortCards($event, 'ataque')">
+                <option value="none">Ataque</option>
+                <option value="desc">Maior-Menor</option>
+                <option value="asc">Menor-Maior</option>
+              </select>
+              
+              <select (change)="sortCards($event, 'experiencia')">
+                <option value="none">Experiencia</option>
+                <option value="desc">Maior-Menor</option>
+                <option value="asc">Menor-Maior</option>
+              </select>
+        </div>
+        <div class="items">
+            <div class="card-item" *ngFor="let pokemon of pokemonList[page]">
+                <app-card [pokemon]="pokemon" (onSelected)="openModal($event)"></app-card>
+            </div>
+        </div>
+        <div class="paginator">
+            <button class="btt-paginator-left" (click)="page = page - 1" [ngClass]="{'disabled' : page == 0}"
+                [disabled]="page == 0"></button>
+            <button class="btt-paginator-right" (click)="page = page + 1"
+                [ngClass]="{'disabled' : page >= pokemonList.length - 1}"
+                [disabled]="page >= pokemonList.length - 1"></button>
+        </div>
+    </div>
+    <app-modal-card></app-modal-card>
+</div>

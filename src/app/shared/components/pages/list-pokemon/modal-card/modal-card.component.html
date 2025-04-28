@@ -1,0 +1,54 @@
+<p-dialog [(visible)]="visible" [showHeader]="false" [style]="{width: '60vw'}" [modal]="true" [draggable]="false"
+    [closeOnEscape]="true" [dismissableMask]="true">
+    <div class="modal" [ngClass]="pokemon.type[0].type.name" *ngIf="pokemon">
+        <div class="close" (click)="visible = false">X</div>
+        <img [src]="pokemon.img" alt="">
+        <div class="info">
+            <p class="title">{{pokemon.name}}</p>
+            <div class="abilities-box abilities">
+                <p>Abilities</p>
+                <span class="abilities-row">
+                    <p>
+                        <ng-container *ngFor="let ability of pokemon.abilities; let i = index">
+                            {{ ability.ability.name }}<span *ngIf="i < pokemon.abilities.length - 1"> - </span>
+                        </ng-container>
+                    </p>
+                </span>
+            </div>
+            <div class="abilities-box stats">
+                <span class="stats-box">
+                    <p>Healthy Points</p>
+                    <p>{{pokemon.hp}}</p>
+                    <div class="empty-bar">
+                        <span class="bar hp" [style.width.%]="(pokemon.hp / 255) * 100"></span>
+                    </div>
+                </span>
+                <span class="stats-box">
+                    <p>Experience</p>
+                    <p>{{pokemon.xp}}</p>
+                    <div class="empty-bar">
+                        <span class="bar xp" [style.width.%]="(pokemon.xp / 395) * 100"></span>
+                    </div>
+                </span>
+            </div>
+            <div class="stats-row">
+                <div class="box-sp-stats">
+                    <span>{{pokemon.def}}</span>
+                    <p>Defense</p>
+                </div>
+                <div class="box-sp-stats">
+                    <span>{{pokemon.atk}}</span>
+                    <p>Attack</p>
+                </div>
+                <div class="box-sp-stats">
+                    <span>{{pokemon.spAtk}}</span>
+                    <p>Sp Attack</p>
+                </div>
+                <div class="box-sp-stats">
+                    <span>{{pokemon.spDef}}</span>
+                    <p>Sp Defense</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</p-dialog>

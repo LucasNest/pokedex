@@ -1,0 +1,33 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+.ff-karla {
+  font-family: "Karla", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.p-dialog {
+  box-shadow: none !important;
+}
+
+.p-dialog .p-dialog-header {
+  background: transparent !important;
+  padding: 0.5rem !important;
+
+}
+
+.p-dialog .p-dialog-content {
+  padding: 0rem !important;
+}

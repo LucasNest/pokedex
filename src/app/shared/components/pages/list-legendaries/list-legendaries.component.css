@@ -1,0 +1,157 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .page {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(33, 33, 33, 1);
+
+        .title {
+            width: 90%;
+            font-family: "Karla", sans-serif;
+            font-size: 72px;
+            font-weight: 400;
+            line-height: 84.17px;
+            letter-spacing: 0.5rem;
+            text-align: left;
+            color: rgba(255, 255, 255, 1);
+            box-sizing: border-box;
+            padding: 1rem;
+            margin: 2rem;
+            border-bottom: 1px solid white;
+        }
+
+        .info-legendaries {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: space-between;
+            padding: 1rem;
+            box-sizing: border-box;
+
+            img {
+                width: 30%;
+                height: 30%;
+                margin-left: 5rem;
+            }
+
+            .info-stats {
+                display: flex;
+                width: 45%;
+                height: 90%;
+                flex-direction: column;
+
+                .title-stats {
+                    font-family: "Karla", sans-serif;
+                    font-weight: 400;
+                    font-size: 72px;
+                    line-height: 100%;
+                    letter-spacing: 4px;
+                    color: #FFFFFF;
+
+                }
+
+                .description {
+                    padding: 2rem 4rem 2rem 0rem;
+                    font-family: "Source Sans 3", sans-serif;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 100%;
+                    color: #FFFFFF;
+                }
+
+                .stats-points {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    flex-wrap: wrap;
+                    max-height: 300px;
+                    padding-bottom: 1rem;
+
+                    p {
+                        font-family: "Karla", sans-serif;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 100%;
+                        color: #FFFFFF;
+                    }
+
+                    .points {
+                        padding: 1rem 0rem;
+                        box-sizing: border-box;
+                    }
+
+                    .empty-bar {
+                        position: absolute;
+                        height: 8px;
+                        width: 150px;
+                        background: rgba(246, 247, 249, 1);
+                        border-radius: 8px;
+
+                        .bar {
+                            display: block;
+                            position: relative;
+                            height: 8px;
+                            width: 80%;
+                            background: rgba(245, 219, 19, 1);
+                            border-radius: 8px;
+                            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                            transition: width 0.3s ease;
+                        }
+                    }
+                }
+            }
+        }
+
+        .list-cards {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 4rem;
+            margin: 3rem 0rem;
+            justify-content: space-between;
+
+            .card {
+                width: 130px;
+                height: 170px;
+                cursor: pointer;
+            }
+
+            .btt-left {
+                width: 20px;
+                height: 20px;
+                background-color: transparent;
+                border-right: none;
+                border-top: none;
+                border-left: 4px solid white;
+                border-bottom: 4px solid white;
+                transform: rotate(45deg);
+                margin-right: 10px;
+                cursor: pointer;
+            }
+
+            .btt-right {
+                width: 20px;
+                height: 20px;
+                background-color: transparent;
+                border-left: none;
+                border-top: none;
+                border-right: 4px solid white;
+                border-bottom: 4px solid white;
+                transform: rotate(-45deg);
+                margin-left: 10px;
+                cursor: pointer;
+            }
+
+            .disabled {
+                pointer-events: none;
+                opacity: 0.6;
+            }
+        }
+    }
+}
