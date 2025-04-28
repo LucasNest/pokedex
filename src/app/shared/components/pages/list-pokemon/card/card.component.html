@@ -1,0 +1,21 @@
+<div class="card" [ngClass]="'background-' + pokemon.type[0].type.name" (click)="selectPokemon(pokemon)">
+    <div class="info">
+        <p class="name">{{pokemon.name}}</p>
+        <span class="stats-info">
+            <span class="block-stats">
+                <div class="stats">{{pokemon.atk}}</div>
+                <p>Attack</p>
+            </span>
+            <span class="block-stats">
+                <div class="stats">{{pokemon.def}}</div>
+                <p>Defense</p>
+            </span>
+        </span>
+        <span class="type-info">
+            <div *ngFor="let type of pokemon.type" class="type" [ngClass]="type.type.name">{{type.type.name}}</div>
+        </span>
+    </div>
+    <div class="img">
+        <img [src]="pokemon.img" alt="">
+    </div>
+</div>

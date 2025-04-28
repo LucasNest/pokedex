@@ -1,0 +1,29 @@
+<header>
+    <img src="../../../assets/logo-pokemon.svg" alt="" routerLink="/home" class="lg-poke">
+    <div class="buttons-header">
+        <button 
+        class="home btt ff-karla" 
+        routerLink="/home" 
+        [class.buttonActive]="activeSection === 'home'">
+            home
+        </button>
+        <button 
+        class="ff-karla" 
+        routerLink="/pokedex" 
+        [class.buttonActive]="activeSection === 'pokedex'">
+            Pokédex
+        </button>
+        <button 
+        class="ff-karla" 
+        routerLink="/legendaries" 
+        [class.buttonActive]="activeSection === 'legendaries'">
+            Legenderies
+        </button>
+        <button 
+        class="ff-karla" 
+        routerLink="/error" 
+        [class.buttonActive]="activeSection === 'documentation'">
+            Documentation
+        </button>
+    </div>
+</header>

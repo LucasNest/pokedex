@@ -1,0 +1,99 @@
+.background {
+    display: grid;
+    height: 100vh;
+    background: #D93E30;
+
+    .position {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 99;
+
+        .rocketGroup {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .teamRocketImg {
+                width: 80%;
+                height: 80%;
+            }
+        }
+
+    }
+
+    .erro404 {
+        position: absolute;
+        align-self: center;
+        justify-self: center;
+        font-size: 700px;
+        font-weight: 700;
+        line-height: 818.3px;
+        letter-spacing: 4px;
+        margin-bottom: 10%;
+        opacity: 50%;
+        z-index: 0;
+    }
+
+    .txtrocket {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 56.11px;
+        text-align: left;
+    }
+
+    #txtrocket {
+        color: white;
+    }
+
+    .acoes {
+        justify-self: center;
+
+        .btt {
+            background: #F2CB07;
+            border: none;
+            border-radius: 11px;
+            margin-top: 20px;
+            height: 50px;
+            width: 200px;
+            font-size: 23px;
+            font-weight: 700;
+            line-height: 26.89px;
+            text-align: center;
+            box-shadow: 0px -9px 0px 0px rgba(0, 0, 0, 0.18) inset;
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+@media (max-width: 1024px) {
+    .background {
+        .position {
+            .rocketGroup {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .erro404 {
+            margin-bottom: 20%;
+            font-size: 500px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .background {
+        .position {
+            .txtrocket {
+                font-size: 35px;
+            }
+    
+        }
+    }
+}

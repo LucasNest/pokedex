@@ -1,0 +1,114 @@
+<div class="container">
+    <app-header></app-header>
+    <div class="page">
+        <p class="title">Legendaries</p>
+        <div class="info-legendaries">
+            <img [src]="legendaryNormalSelected.img" alt="">
+            <div class="info-stats">
+                <p class="title-stats">{{legendaryNormalSelected.name}}</p>
+                <p class="description">
+                    A API utilizada neste projeto de estudo não disponibiliza uma descrição para os Pokémons. Por isso,
+                    infelizmente essa informação não pôde ser exibida.
+                </p>
+                <div class="stats-points">
+                    <div class="points" *ngFor="let stats of listStats">
+                        <p>{{stats.name}}</p>
+                        <p>{{ legendaryNormalSelected[stats.key] }}</p>
+                        <span class="empty-bar">
+                            <span class="bar"
+                            [style.width.%]="(+legendaryNormalSelected[stats.key] / 340) * 100"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list-cards">
+            <button class="btt-left"
+            (click)="pageNormal = pageNormal - 1" 
+            [disabled]="pageNormal == 0" 
+            [ngClass]="{'disabled':pageNormal == 0}"></button>
+            <div class="card" *ngFor="let legendary of normalLegendaries[pageNormal]">
+                <app-card-legendaries [legendary]="legendary"
+                    (onSelected)="legendarySelected('legendary', $event)"></app-card-legendaries>
+            </div>
+            <button class="btt-right" 
+            (click)="pageNormal = pageNormal + 1" 
+            [disabled]="pageNormal >= normalLegendaries.length - 1" 
+            [ngClass]="{'disabled':pageNormal >= normalLegendaries.length - 1}"></button>
+        </div>
+    </div>
+    <div class="page">
+        <p class="title">Stronger</p>
+        <div class="info-legendaries">
+            <img [src]="legendaryStrongerSelected.img" alt="">
+            <div class="info-stats">
+                <p class="title-stats">{{legendaryStrongerSelected.name}}</p>
+                <p class="description">
+                    A API utilizada neste projeto de estudo não disponibiliza uma descrição para os Pokémons. Por isso,
+                    infelizmente essa informação não pôde ser exibida.
+                </p>
+                <div class="stats-points">
+                    <div class="points" *ngFor="let stats of listStats">
+                        <p>{{stats.name}}</p>
+                        <p>{{ legendaryStrongerSelected[stats.key] }}</p>
+                        <span class="empty-bar">
+                            <span class="bar"
+                            [style.width.%]="(+legendaryStrongerSelected[stats.key] / 340) * 100"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list-cards">
+            <button class="btt-left"
+            (click)="pageStronger = pageStronger - 1" 
+            [disabled]="pageStronger == 0" 
+            [ngClass]="{'disabled':pageStronger == 0}"></button>
+            <div class="card" *ngFor="let legendary of strongerLegendaries[pageStronger]">
+                <app-card-legendaries [legendary]="legendary"
+                    (onSelected)="legendarySelected('stronger', $event)"></app-card-legendaries>
+            </div>
+            <button class="btt-right" 
+            (click)="pageStronger = pageStronger + 1" 
+            [disabled]="pageStronger >= strongerLegendaries.length - 1" 
+            [ngClass]="{'disabled':pageStronger >= strongerLegendaries.length - 1}"></button>
+        </div>
+    </div>
+    <div class="page">
+        <p class="title">Weaker</p>
+        <div class="info-legendaries">
+            <img [src]="legendaryWeakerSelected.img" alt="">
+            <div class="info-stats">
+                <p class="title-stats">{{legendaryWeakerSelected.name}}</p>
+                <p class="description">
+                    A API utilizada neste projeto de estudo não disponibiliza uma descrição para os Pokémons. Por isso,
+                    infelizmente essa informação não pôde ser exibida.
+                </p>
+                <div class="stats-points">
+                    <div class="points" *ngFor="let stats of listStats">
+                        <p>{{stats.name}}</p>
+                        <p>{{ legendaryWeakerSelected[stats.key] }}</p>
+                        <span class="empty-bar">
+                            <span class="bar"
+                            [style.width.%]="(+legendaryWeakerSelected[stats.key] / 340) * 100"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list-cards">
+            <button class="btt-left"
+            (click)="pageWeaker = pageWeaker - 1" 
+            [disabled]="pageWeaker == 0" 
+            [ngClass]="{'disabled':pageWeaker == 0}"></button>
+            <div class="card" *ngFor="let legendary of weakerLegendaries[pageWeaker]">
+                <app-card-legendaries [legendary]="legendary"
+                    (onSelected)="legendarySelected('weaker', $event)"></app-card-legendaries>
+            </div>
+            <button class="btt-right" 
+            (click)="pageWeaker = pageWeaker + 1" 
+            [disabled]="pageWeaker >= weakerLegendaries.length - 1" 
+            [ngClass]="{'disabled':pageWeaker >= weakerLegendaries.length - 1}"></button>
+        </div>
+    </div>
+</div>

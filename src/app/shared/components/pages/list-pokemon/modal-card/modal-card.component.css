@@ -1,0 +1,239 @@
+.modal {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+  
+    img {
+      width: 40%;
+      height: 40%;
+    }
+  
+    .info {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      justify-content: space-between;
+      align-items: flex-start;
+      min-height: 350px;
+  
+      .title {
+        font-family: 'Karla', sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 100%;
+        color: #fdfdfd;
+        margin-left: 10px;
+      }
+  
+      .abilities-box {
+        display: flex;
+        min-height: 50px;
+        border-radius: 8px;
+        background-color: #fdfdfd;
+      }
+  
+      .stats {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+  
+        .stats-box {
+          padding: 1rem;
+          width: 50%;
+  
+          p {
+            margin: 0.25rem;
+          }
+  
+          .empty-bar {
+            width: 100%;
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 4px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  
+            .bar {
+              display: block;
+              height: 100%;
+              border-radius: 10px 0 0 10px;
+              transition: width 0.3s ease-in-out;
+            }
+  
+            .hp {
+              background: linear-gradient(90deg, #4caf50, #81c784);
+            }
+  
+            .xp {
+              background: linear-gradient(90deg, #ffeb3b, #fdd835);
+            }
+          }
+        }
+      }
+  
+      .abilities {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+  
+        p {
+          padding: 0.25rem;
+        }
+  
+        .abilities-row {
+          display: flex;
+        }
+      }
+  
+      .stats-row {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+  
+        .box-sp-stats {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 80px;
+          height: 70px;
+          border-radius: 8px;
+          background-color: #fdfdfd;
+  
+          p {
+            font-family: 'Karla', sans-serif;
+            font-weight: 400;
+            font-size: 12px;
+            text-align: center;
+            line-height: 100%;
+          }
+  
+          span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            aspect-ratio: 1 / 1;
+            height: 30px;
+            outline: 3px solid black;
+            border-radius: 50%;
+            text-align: center;
+            margin-bottom: 5px;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+  
+  .close {
+    position: absolute;
+    top: 18px;
+    right: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1;
+    z-index: 10;
+    transition: transform 0.2s ease;
+  
+    &:hover {
+      transform: scale(1.2);
+      color: #e53935;
+    }
+  }
+  
+  .grass { background: linear-gradient(180deg, #9bcc50 0%, #7ebd35 100%); }
+  .water { background: linear-gradient(180deg, #5bc7fa 0%, #35baff 100%); }
+  .fire { background: linear-gradient(180deg, #fd7d24 0%, #f05a2a 100%); }
+  .poison { background: linear-gradient(180deg, #b97fc9 0%, #9e4fa3 100%); }
+  .flying { background: linear-gradient(180deg, #3dc7ef 0%, #bdb9b8 100%); }
+  .bug { background: linear-gradient(180deg, #729f3f 0%, #568d2d 100%); }
+  .normal { background: linear-gradient(180deg, #a4acaf 0%, #c4c8ca 100%); }
+  .electric { background: linear-gradient(180deg, #eed535 0%, #e0c020 100%); }
+  .ground { background: linear-gradient(180deg, #f7de3f 0%, #ab9842 100%); }
+  .rock { background: linear-gradient(180deg, #a38c21 0%, #c2a843 100%); }
+  .fairy { background: linear-gradient(180deg, #fdb9e9 0%, #f4a0dc 100%); }
+  .fighting { background: linear-gradient(180deg, #e30c55 0%, #c30045 100%); }
+  .psychic { background: linear-gradient(180deg, #f366b9 0%, #d93b9f 100%); }
+  .steel { background: linear-gradient(180deg, #9eb7b8 0%, #7a9a9c 100%); }
+  .ice { background: linear-gradient(180deg, #4592c4 0%, #78cfe4 100%); }
+  .ghost { background: linear-gradient(180deg, #7b62a3 0%, #5e4784 100%); }
+  .dragon { background: linear-gradient(180deg, #53a4cf 0%, #f16e57 100%); }
+  .dark { background: linear-gradient(180deg, #707070 0%, #4a4a4a 100%); }
+  
+  .width-modal {
+    width: 60vw;
+  }
+  
+  @media (min-width: 1024px) {
+    .modal .info {
+      min-height: 350px;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .modal .info {
+      .stats {
+        width: 100%;
+      }
+      .stats-row {
+        width: 100%;
+  
+        .box-sp-stats {
+          width: 65px;
+          height: 55px;
+  
+          p {
+            font-size: 10px;
+          }
+          span {
+            height: 25px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .modal .info {
+      height: 300px;
+  
+      .stats {
+        width: 100%;
+      }
+  
+      .abilities-box .stats-box {
+        padding: 0.5rem;
+      }
+  
+      .abilities-box p {
+        font-size: 12px;
+      }
+  
+      .stats-row {
+        width: 100%;
+  
+        .box-sp-stats {
+          width: 50px;
+          height: 50px;
+  
+          p {
+            font-size: 10px;
+          }
+          span {
+            height: 20px;
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+  
